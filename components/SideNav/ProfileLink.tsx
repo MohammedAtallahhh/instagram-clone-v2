@@ -1,4 +1,5 @@
 "use client";
+
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import type { User } from "next-auth";
@@ -22,10 +23,11 @@ function ProfileLink({ user }: { user: User }) {
         className: "navLink",
         size: "lg",
       })}
+      style={{ width: "calc(1/7 * 100%)" }}
     >
       <UserAvatar
         user={user}
-        className={`h-6 w-6 ${isActive && "border-2 border-white"}`}
+        className={`h-8 w-8 ${isActive && "border-2 border-white"}`}
       />
 
       <p

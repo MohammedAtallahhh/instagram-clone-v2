@@ -57,7 +57,7 @@ const MoreDropdown = () => {
           onClick={() => setOpen(!open)}
           variant={"ghost"}
           size={"lg"}
-          className="md:w-full !justify-start space-x-2 !px-3"
+          className="w-full flex justify-center items-center md:w-full md:justify-start space-x-2 !px-3"
         >
           <Menu />
           <div className="hidden lg:block">More</div>
@@ -107,7 +107,7 @@ const MoreDropdown = () => {
           <>
             <div className="flex items-center border-b border-gray-200 dark:border-neutral-700 py-3.5 px-2.5">
               <ChevronLeft size={18} onClick={() => setShowModeToggle(false)} />
-              <p className="font-bold ml-1">Switch appearance</p>
+              <p className="ml-1 font-bold">Switch appearance</p>
               {theme === "dark" ? (
                 <Moon size={20} className="ml-auto" />
               ) : (

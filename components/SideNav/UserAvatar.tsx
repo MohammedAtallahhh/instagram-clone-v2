@@ -10,7 +10,7 @@ type Props = Partial<AvatarProps> & {
 
 function UserAvatar({ user, ...avatarProps }: Props) {
   return (
-    <Avatar className="relative h-8 w-8" {...avatarProps}>
+    <Avatar className="relative w-8 h-8" {...avatarProps}>
       <Image
         src={
           user?.image ||
@@ -18,7 +18,7 @@ function UserAvatar({ user, ...avatarProps }: Props) {
         }
         fill
         alt={`${user?.name}'s profile picture`}
-        className="rounded-full object-cover"
+        className="object-cover rounded-full"
       />
     </Avatar>
   );

@@ -71,13 +71,13 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply antialiased bg-background text-foreground;
   }
 }
 
 @layer components {
   .navLink {
-    @apply md:!justify-start space-x-2 md:!my-1.5 !px-3 w-full;
+    @apply md:!justify-start space-x-2 md:!my-1.5 !p-2 md:!w-full;
   }
 
   .menuItem {
@@ -85,7 +85,7 @@
   }
 
   .postOption {
-    @apply flex items-center justify-center border-b border-zinc-300 dark:border-neutral-700 text-sm font-medium w-full;
+    @apply flex items-center justify-center w-full text-sm font-medium border-b border-zinc-300 dark:border-neutral-700;
   }
 
   .dialogContent {

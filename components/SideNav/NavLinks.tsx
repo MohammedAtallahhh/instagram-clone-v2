@@ -1,8 +1,11 @@
 "use client";
+
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 import { buttonVariants } from "../ui/button";
+import ProfileLink from "./ProfileLink";
+
 import { cn } from "@/lib/utils";
 
 import {
@@ -14,44 +17,45 @@ import {
   PlusSquare,
   Search,
 } from "lucide-react";
+import { User } from "next-auth";
 
 const links = [
-  { name: "Home", href: "/dashboard", icon: Home },
+  { name: "Home", href: "/", icon: Home },
   {
     name: "Search",
-    href: "/dashboard/search",
+    href: "/search",
     icon: Search,
     hideOnMobile: true,
   },
-  { name: "Explore", href: "/dashboard/explore", icon: Compass },
+  { name: "Explore", href: "/explore", icon: Compass },
   {
     name: "Reels",
-    href: "/dashboard/reels",
+    href: "/reels",
     icon: Clapperboard,
   },
   {
     name: "Messages",
-    href: "/dashboard/messages",
+    href: "/messages",
     icon: MessageCircle,
   },
   {
     name: "Notifications",
-    href: "/dashboard/notifications",
+    href: "/notifications",
     icon: Heart,
     hideOnMobile: true,
   },
   {
     name: "Create",
-    href: "/dashboard/create",
+    href: "/create",
     icon: PlusSquare,
   },
 ];
 
-function NavLinks() {
+function NavLinks({ user }: { user?: User }) {
   const pathname = usePathname();
 
   return (
-    <>
+    <div className="flex flex-row flex-1 gap-2 nav-links md:flex-col justify-evenly md:justify-center">
       {links.map((link) => {
         const LinkIcon = link.icon;
         const isActive = pathname === link.href;
@@ -62,11 +66,14 @@ function NavLinks() {
             href={link.href}
             className={buttonVariants({
               variant: isActive ? "secondary" : "ghost",
-              className: cn("navLink", { "hidden md:flex": link.hideOnMobile }),
+              className: cn("navLink", {
+                "hidden md:flex": link.hideOnMobile,
+              }),
               size: "lg",
             })}
+            style={{ width: "calc(1/7 * 100%)" }}
           >
-            <LinkIcon className="w-6" />
+            <LinkIcon className="w-full h-full lg:w-[unset] lg:h-[unset]" />
             <p
               className={`${cn("hidden lg:block", {
                 "font-extrabold": isActive,
@@ -77,7 +84,8 @@ function NavLinks() {
           </Link>
         );
       })}
-    </>
+      {user && <ProfileLink user={user} />}
+    </div>
   );
 }
 
