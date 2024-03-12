@@ -8,9 +8,9 @@ const LoginPage = async () => {
   const session = await auth();
   const user = session?.user;
 
-  if (user) {
-    redirect("/");
-  }
+  // if (user) {
+  //   redirect("/");
+  // }
 
   return (
     <div className="grid place-items-center h-screen">

@@ -10,7 +10,10 @@ type Props = Partial<AvatarProps> & {
 
 function UserAvatar({ user, ...avatarProps }: Props) {
   return (
-    <Avatar className="relative w-8 h-8" {...avatarProps}>
+    <Avatar
+      className="relative flex items-center justify-center"
+      {...avatarProps}
+    >
       <Image
         src={
           user?.image ||

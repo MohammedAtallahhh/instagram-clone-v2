@@ -5,7 +5,7 @@ import Link from "next/link";
 import type { User } from "next-auth";
 
 import { buttonVariants } from "../ui/button";
-import UserAvatar from "./UserAvatar";
+import UserAvatar from "../UserAvatar";
 
 import { cn } from "@/lib/utils";
 
@@ -20,14 +20,14 @@ function ProfileLink({ user }: { user: User }) {
       href={href}
       className={buttonVariants({
         variant: isActive ? "secondary" : "ghost",
-        className: "navLink",
+        className: "navLink flex justify-center",
         size: "lg",
       })}
       style={{ width: "calc(1/7 * 100%)" }}
     >
       <UserAvatar
         user={user}
-        className={`h-8 w-8 ${isActive && "border-2 border-white"}`}
+        className={`h-8 w-8 ${isActive ? "border-2 border-white" : ""}`}
       />
 
       <p

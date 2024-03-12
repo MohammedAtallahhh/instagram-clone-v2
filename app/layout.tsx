@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 
 import { ThemeProvider } from "@/components/ThemeProvider";
 import AuthProvider from "@/components/AuthProvider";
+import SideNav from "@/components/SideNav";
 
 import { inter } from "./fonts";
 
@@ -48,7 +49,6 @@ export default function RootLayout({
               // />
             }
             {children}
-
             {/* <Toaster richColors /> */}
           </AuthProvider>
         </ThemeProvider>
